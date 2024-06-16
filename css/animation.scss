@@ -1,0 +1,16 @@
+//float animation
+
+@keyframes float {
+	0% {
+		transform: translatex(0px) translatey(0px);
+	}
+	50% {
+		transform: translatex(-13px) translatey(-13px);
+	}
+	75% {
+		transform: translatex(-5px) translatey(-13px);
+	}
+	100% {
+		transform: translatex(0px) translatey(0px);
+	}
+}

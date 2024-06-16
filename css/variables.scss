@@ -1,0 +1,27 @@
+// VARIABLES
+
+$title-font: 'M PLUS Rounded 1c', sans-serif;
+
+// colors
+$accent-color: #00a581;
+$accent-green-fl-color: rgb(62, 232, 190);
+$accent-pink-fl-color: rgb(255, 116, 175);
+$dark-color: #1c1c1c;
+$light-dark-color: lighten($dark-color, 30%);
+$shadow-color: rgba($dark-color, .1);
+$white-color:#ffffff;
+$white-alpha-color: rgba($white-color, 0.85);
+$ligth-bg-color: rgb(254 249 242 / 60%);
+$background-gradient-color: linear-gradient(0.56turn, rgba($accent-green-fl-color, .55), $ligth-bg-color,rgba($accent-pink-fl-color, .35) 100%);
+// end colors
+
+//BORDERS
+$border--box: solid 2px rgba($light-dark-color, .33);
+$border-radius-basic: 5px;
+$border-radius-box: calc(#{$border-radius-basic} * 2);
+
+//SHADOWS
+$shadow-basic: 5px 5px 10px $shadow-color;
+
+
+// END VARIABLES

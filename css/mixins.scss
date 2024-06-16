@@ -1,0 +1,180 @@
+// MIXINS
+
+//containers
+@mixin container-default-style {
+    background-color: $white-alpha-color;
+    border-radius: $border-radius-box;
+    border: solid 2px $white-color;
+    box-shadow: 3px 3px 3px $shadow-color;
+    &:hover {
+        box-shadow: 10px 10px 25px $shadow-color;
+    }
+}
+
+//TEXT
+@mixin text-trancate {
+    overflow:hidden;
+    line-height: inherit;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    max-height: 6em;
+    -webkit-line-clamp: 4;
+}
+
+// LINKS
+@mixin generalLink-style {
+    font-family: 'Roboto', sans-serif;
+    color: $light-dark-color;
+    text-decoration: none;
+    text-underline-offset: 3px;
+    font-weight: lighter;
+    &:hover {
+        color: $accent-color;
+        text-decoration: underline;
+        text-decoration-color: $accent-color;
+        text-underline-offset: 3px;
+        text-decoration-thickness: 2px;
+        font-weight: normal;
+    }
+    &:focus {
+        color: $accent-color;
+        text-decoration: none;
+        font-weight: normal;
+    }
+    &:focus-visible {
+        color: $accent-color;
+        text-decoration: none;
+        box-shadow: none;
+        font-weight: normal;
+    }
+    &:active {
+        font-weight: bolder;
+        color: $dark-color;
+        border: none;
+    }
+
+}
+
+//social icons
+@mixin social-icon-style {
+        display: flex;
+        width: 2.5em;
+        height: 2.5em;
+        background-color: $accent-color;
+        color: $white-color;
+        border-radius: $border-radius-basic;
+        text-decoration: none;
+        text-align: center;
+        justify-content: center;
+        align-content: center;
+        flex-wrap: wrap;
+        &:hover {
+            background-color: $light-dark-color;
+            color: $white-color;
+        }
+        i {
+            font-family: 'Bootstrap-icons';
+            font-style: normal;
+            height: fit-content;
+            font-size: x-large;
+        }
+    }
+
+//BUTTONS
+@mixin button-styles($colorBG){
+    display: block;
+    width: 13em;
+    border-radius: $border-radius-basic;
+    border: solid 3px $colorBG;
+    color: $colorBG;
+    background-color: transparent;
+    box-shadow: $shadow-basic;
+    font-size: larger;
+    letter-spacing: 3px;
+    position: relative;
+    transition: all .33s;
+    > span {
+        position: relative;
+        z-index: 9;
+      }
+    &:after{
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        content: "";
+        background: $colorBG;
+        transition: all .33s;
+      }
+    &:hover{
+        color: $dark-color;
+        cursor: pointer;
+      }
+      
+    &:hover:after{
+        width: 100%;
+      }
+    &:before {
+        display: block;
+        padding-top: 50%;
+        padding-left: 103%;
+        position: absolute;
+        margin-left: -0.7em;
+        margin-top: -2.5em;
+        content: "";
+        background: $colorBG;
+        opacity: 0;
+        border-radius: 250px;
+        transition: all 0.33s;
+      }
+      
+    &:active:before {
+        padding: 0;
+        margin: 0;
+        opacity: 0.5;
+        transition: 0s;
+      }
+}
+
+@mixin general-button-style {
+    width: 13em;
+    border: $border--box;
+    color: $dark-color;
+    background-color: transparent;
+    border-color: $dark-color;
+    padding-left: 2em;
+    padding-right: 2em;
+    letter-spacing: 1px;
+    border-radius: $border-radius-basic;
+    &:hover {
+        background-color: $shadow-color;
+    }
+    &:active {
+        background-color: $shadow-color;
+    }
+}
+
+@mixin payment-button-style {
+    width: 13em;
+    display: block;
+    text-align: center;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    background-color: $dark-color;
+    border-radius: $border-radius-basic;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+    color: $white-color;
+    text-decoration: none;
+    &:hover {
+        background-color: $shadow-color;
+    }
+    &:active {
+        background-color: $shadow-color;
+    }
+}
+
+// END MIXINS

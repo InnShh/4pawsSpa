@@ -1,0 +1,618 @@
+@import "https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&family=Protest+Riot&family=Roboto:wght@300;400;500;700&display=swap";
+@import "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css";
+@import "variables.scss";
+@import "mixins.scss";
+@import "animation.scss";
+
+// GENERAL STYLES
+
+body {
+    position: relative;
+    background-color: rgb(254 249 242 / 60%);
+}
+
+button[type="submit"] ,button[type="button"]:not(.navbar-toggler) {
+    @include general-button-style;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a.donation {
+    @include payment-button-style;
+    img {
+        height: 1.5em;
+        width: fit-content;
+        padding-right: 7px;
+    }
+}
+fieldset {
+    ul {
+        list-style: none;
+        padding-left: 0;
+        display: flex;
+        li a {
+            @include social-icon-style;
+        }
+        li:first-child {
+            margin-right: 0.5em;
+            a i::before {
+                content: '\F437';
+            }
+        }
+        li:last-child {
+            margin-left: 0.5em;
+                a i::before {
+                    content: '\F62B';
+                }
+        }
+        li:nth-of-type(2) {
+            a i::before {
+                content: '\F344';
+            }
+        }
+    }
+}
+
+figcaption {
+    display: none;
+}
+
+// END GENERAL
+
+// Text
+h1, h2, h3, h4 {
+    font-family: $title-font;
+    color: $dark-color;
+}
+
+h2 {
+    text-align: center;
+    font-size: xxx-large;
+    font-weight: 400;
+}
+
+p:not(footer p) {
+    font-family: 'Roboto', sans-serif;
+    color: $dark-color;
+    text-align: justify;
+    font-size: large;
+}
+
+p a {
+    @include generalLink-style;
+}
+// End text
+
+// HEADER MENU 
+
+header {
+    position: absolute;
+    z-index: 9;
+    width: 100%;
+    > .container-fluid > .container {
+        @include container-default-style;
+        @media (max-width: 991px) {
+            background-color: $white-color;
+        }
+            .navbar button.navbar-toggler {
+                border: none;
+                &:focus {
+                    border: $border--box;
+                    box-shadow: none;
+                }
+            }
+            .navbar-collapse {
+                li.nav-item a {
+                    @include generalLink-style;
+                    text-decoration: none;
+                    &:hover {
+                        text-decoration-color: $accent-color;
+                    }
+                }
+                
+            }
+        }
+    @media (min-width: 992px) {
+        .container {
+            margin-top: 1em;
+            #navbarSupportedContent {
+                align-items: center;
+                justify-content: space-between;
+                > ul {
+                    margin: 0 !important;
+                    align-items: center;
+                    width: 45%;
+                    text-align: center;
+                    > li {
+                        flex: 1;
+                    }
+                }
+                > fieldset {
+                    margin: 0;
+                    align-items: center;
+                    > ul {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// navbrand
+a.navbar-brand img {
+    width: 5em;
+}
+// END HEADER MENU 
+
+// SECTION PRESENTATION
+section.presentation {
+    background-image: $background-gradient-color;
+    display: flex;
+    flex-direction: column;
+    .container {
+        padding: 8em 2em 3em 2em;
+        h1 {
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            font-size: xx-large;
+            @media (min-width: 1200px) {
+                font-size: xxx-large;
+            }
+            span {
+                position: relative;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    bottom: 15%;
+                    left: 0%;
+                    right: -10%;
+                    margin: 0 auto;
+                    width: 100%;
+                    height: 20px;
+                    background-color: $accent-color;
+                    z-index: -1;
+                }
+            }
+        }
+        h1 + p {
+            font-size: larger;
+        }
+        .row {
+            //BUTTONS
+            flex-direction: row;
+            justify-content: space-evenly;
+            margin-top: 1em;
+            a.btn:nth-of-type(1) {
+                @include button-styles($accent-green-fl-color);
+            }
+            a.btn:nth-of-type(2) {
+                @include button-styles($accent-pink-fl-color);
+            }
+        }
+        video {
+            width: inherit;
+            height: auto;
+            border-radius: $border-radius-basic;
+            margin-top: 2em;
+        }
+    }
+    @media (min-width: 992px) {
+        > .container {
+            flex-direction: row;
+            display: flex;
+            padding-top: 10em;
+            .col-12.col-lg-6:first-child {
+                margin-right: 1em;
+                > div {
+                    padding-left: 0.5em;
+                }
+            }
+            .col-12.col-lg-6:last-child {
+                display: flex;
+                justify-content: center;
+                align-content: center;
+                margin: 0;
+                flex-wrap: wrap;
+                video {
+                    width: 25em;
+                    margin: 0;
+                    object-fit: cover;
+                    height: 20em;
+                }
+            }
+        }
+    }
+    @media (min-width: 1200px) {
+        video {
+            width: 30em !important;
+            height: 23em !important;
+        }
+    }
+    @media (min-width: 1200px) {
+        video {
+            width: 33em !important;
+            height: 25em !important;
+        }
+    }
+}
+// END PRESENTATION
+
+//SECTION ABOUT
+
+.about {
+    row content-wrapper {
+        align-items: center;
+    }
+    div:has(figure) {
+        figure {
+            transform: translatex(0px) translatey(0px);
+            animation: float 7s ease-in-out infinite;
+        }
+    }
+    div:has(figure) + div {
+        padding: 0 2em;
+        p {
+            font-size: larger;
+            @media (min-width: 992px){
+                font-size: x-large;
+        }
+        }
+    }
+}
+
+//END SECTION ABOUT
+
+// SECTION ANIMALS FOR ADOPTION
+
+.row.content-wrapper {
+    justify-content: center;
+    div.card {
+        width: 20em;
+        @media (min-width: 576px) {
+            width: 25em;
+        }
+        @media (min-width: 768px) {
+            width: 20em;
+        }
+        @media (min-width: 992px) {
+            width: 17em;
+        }
+        padding: 1.5em;
+        border: $border--box;
+        border-radius: $border-radius-box;
+        border-width: 1px;
+        @include container-default-style;
+        &:hover {
+                cursor: pointer;
+                border-color: $accent-color;
+            }
+        figure {
+            width: 100%;
+            height: 13em;
+            img {
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            
+            mark {
+                width: max-content;
+                margin-bottom: 1em;
+                margin-top: 1em;
+                padding-left: 0.5em;
+                padding-right: 0.5em;
+            }
+            > p {
+                @include text-trancate;
+                -webkit-line-clamp: 6;
+                max-height: 10em;
+                @media (max-width: 767px) {
+                    @include text-trancate;
+                }
+            }
+            a.btn {
+                width: max-content;
+                margin-top: auto;
+                display: block;
+                padding-left: 0;
+                @include generalLink-style;
+            }
+        }
+    }
+}
+
+//END SECTION ANIMALS FOR ADOPTION
+
+//CAROUSEL
+section .carousel.slide {
+    .carousel-control-prev,
+    .carousel-control-next {
+    background-color: rgba($light-dark-color, 15%);
+    width: 5vh;
+    height: 4vh;
+    border-radius: $border-radius-basic;
+    top: 100%;
+ //   transform: translateY(-50%);
+    }
+    .carousel-control-next {
+        right: 6%;
+    }
+    .carousel-control-prev {
+        left: 84%;
+    }
+    .carousel-inner {
+        padding: 1em 2em;
+        .carousel-item > .row {
+            justify-content: center;
+            div.card {
+                width: 17em;
+                padding: 1.5em;
+                figure {
+                    width: 100%;
+                    height: 13em;
+                    img {
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+                .card-body {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 0;
+                    mark {
+                        width: max-content;
+                        margin-bottom: 1em;
+                        margin-top: 1em;
+                    }
+                    a.btn {
+                        width: max-content;
+                        margin-top: auto;
+                        border-radius: 5px;
+                        border: solid 3px transparent;
+                        background-image: linear-gradient(-0.75turn, rgb(0 196 150) 0%, rgb(65 255 207 / 88%) 100%);
+                        box-shadow: 5px 5px 10px #9a9a9aa6;
+                    }
+                }
+            }
+        }
+    }
+}
+//END CAROUSEL
+
+//SECTION PRICES
+table {
+    caption {
+    display: none;
+    }
+    width: 90% !important;
+    font-size: larger;
+    @media (min-width: 992px) {
+        width: 70% !important;
+        font-size: x-large;
+    }
+    background-color: $white-color;
+    color: $dark-color;
+    thead {
+        th {
+            padding-left: 5px;
+            border: $border--box;
+            background-color: $shadow-color;
+            color: $dark-color;
+        }
+    }
+    td {
+        border: $border--box;
+        background-color: $white-color;
+        color: $dark-color;
+        padding-left: 5px;
+    }
+    }
+//END SECTION PRICES
+
+//CONTACT
+main > :last-child {
+    background-color: $accent-green-fl-color;
+    margin-top: 5em;
+    padding: 0;
+    > .container {
+        padding-top: 0 ! important;
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+main > div.container.row {
+    padding-right: 0;
+    padding-left: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+section.col-12.col-lg-8  {
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    h2 {
+        margin-top: 1.5em;
+    }
+}
+
+form {
+    .col-12 {
+        margin-top: 1.5em;
+    }
+    :last-child {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+//END CONTACT
+
+//DONATION
+section.col-12.col-lg-4 {
+    background-color: $accent-pink-fl-color;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    position: relative;
+    > .row {
+        flex-direction: column;
+    }
+    h2 {
+        margin-top: 1.5em;
+    }
+    p { 
+        margin-top: 2em;
+    }
+    figure {
+        margin: 0 0 -5px 0;
+        padding: 0;
+        text-align: center;
+        @media (min-width: 992px) {
+            position: absolute;
+            bottom: -1%;
+        }
+        @media (min-width: 1200px) {
+            left: 15%;
+        }
+        img {
+            width: 70%;
+        }
+    }
+}
+
+//FOOTER
+footer {
+    background-color: $dark-color;
+    .container > .row:first-child {
+        padding-top: 2em;
+        @media (min-width: 992px) {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        > ul:first-child {
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            padding: 0;
+            list-style: none;
+            @media (min-width: 992px) {
+                width: 50%;
+            }
+            > li {
+                flex: 1;
+                text-align: center;
+                border-right: solid 1px $white-color;
+                a {
+                    @include generalLink-style;
+                    color: $white-color;
+                    &:hover {
+                        text-decoration-color: $accent-color;
+                    }
+                }
+                &:last-child {
+                    border: none;
+                }
+            }
+        }
+        fieldset {
+            @media (min-width: 992px) {
+                width: fit-content;
+            }
+            > ul {
+                li a {
+                    background-color: transparent;
+                    border: $border--box;
+                    border-color: $white-color;
+                    border-radius: $border-radius-basic;
+                    &:hover {
+                        background-color: $accent-color;
+                    }
+                    &:active {
+                        background-color: $accent-color;
+                    }
+                }
+                @media (max-width: 991px) {
+                    margin-left: auto;
+                    margin-right: auto;
+                    > li:nth-of-type(2) {
+                        margin-left: 2em;
+                        margin-right: 2em;
+                    }
+                }
+            }
+        }
+    }
+    .container > .row:last-child {
+        padding-top: 0;
+        p {
+            font-family: 'Roboto', sans-serif;
+            color: $white-color;
+            text-decoration: none;
+            text-underline-offset: 3px;
+            font-weight: lighter;
+            text-align: center;
+        }
+    }
+}
+
+//END FOOTER
+
+//POPUP
+
+.popup {
+    position: absolute;
+    z-index: 99;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: rgba($dark-color, 0.7);
+    display: none;
+    > .row {
+        @include container-default-style;
+        background-color: $white-color;
+        align-self: flex-start;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: auto;
+        margin-bottom: 100vh;
+        @media (min-width: 768px) {
+            margin-bottom: 110vh;
+        }
+        @media (min-width: 768px) {
+            margin-bottom: 40vh;
+        }
+        flex-direction: column;
+        align-items: center;
+        padding: 3em;
+        width: 350px;
+        justify-content: center;
+        @media (min-width: 768px) {
+          width: 700px;
+        }
+        figure {
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            img {
+                width: 200px;
+            }
+        }
+        .col-12.col-md-6:nth-of-type(2) {
+            width: auto;
+            margin-top: 1em;
+            text-align: center;
+        }
+    }
+
+}
+
+//END POPUP
